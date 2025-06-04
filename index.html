@@ -6,16 +6,10 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-
   <title>Chewy Decimal System</title>
 
-  <!-- Tailwind CDN (Play CDN for prototyping) -->
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!--
-    In order to get a warmer, sepia-toned “old library” look,
-    we’ll override the default Tailwind palette slightly. 
-  -->
   <script>
     tailwind.config = {
       theme: {
@@ -32,21 +26,16 @@
       },
     };
   </script>
-
-  <!-- Google Fonts: Merriweather for an old-book feel -->
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
     rel="stylesheet"
   />
-
   <style>
-    /* Global `body` uses our sepia palette */
     body {
       background-color: theme("colors.sepiaBG");
       color: theme("colors.sepiaText");
       font-family: theme("fontFamily.serif");
     }
-    /* Subtle page fade in */
     .fade-in {
       animation: fadeIn 1s ease-in-out;
     }
@@ -57,6 +46,15 @@
       to {
         opacity: 1;
       }
+    }
+    /* Style for summary elements */
+    summary {
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+    }
+    summary:hover {
+      background-color: rgba(165, 124, 82, 0.1);
     }
   </style>
 </head>
@@ -134,46 +132,611 @@
           </ul>
         </div>
 
-        <!-- Right Column: Sample Decimal Outline -->
+        <!-- Right Column: Detailed Decimal Outline (clickable folders) -->
         <div>
-          <h4 class="text-xl font-semibold mb-2">Sample Classification</h4>
-          <div class="bg-sepiaBG p-4 rounded-lg border border-sepiaAccent">
-            <dl class="space-y-4">
-              <div>
-                <dt class="font-mono text-sepiaAccent">100</dt>
-                <dd class="ml-4">Pantry Staples (e.g., grains, oils, baking)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">200</dt>
-                <dd class="ml-4">Snacks & Beverages (e.g., chips, sodas, juices)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">300</dt>
-                <dd class="ml-4">Household & Personal Care (e.g., cleaners, paper goods)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">400</dt>
-                <dd class="ml-4">Fresh Produce (e.g., fruits, vegetables, herbs)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">500</dt>
-                <dd class="ml-4">Proteins & Dairy (e.g., meat, seafood, cheese)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">600</dt>
-                <dd class="ml-4">Frozen Foods (e.g., frozen veggies, meals, desserts)</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-sepiaAccent">990</dt>
-                <dd class="ml-4">Services & Misc (e.g., bakery, pharmacy, floral)</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <h4 class="text-xl font-semibold mb-4">Detailed Classification</h4>
+            <div class="bg-sepiaBG p-4 rounded-lg border border-sepiaAccent overflow-auto max-h-[600px]">
+            <!-- 100 – Pantry Staples -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">100</span>
+                <span class="font-semibold">Pantry Staples</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">110</span>
+                    <span class="font-semibold">Grains &amp; Pasta</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">111</span>
+                        <span>Rice</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">112</span>
+                        <span>Pasta &amp; Noodles</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">113</span>
+                        <span>Cereals</span>
+                    </div>
+                    </div>
+                </details>
 
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">120</span>
+                    <span class="font-semibold">Canned &amp; Jarred Goods</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">121</span>
+                        <span>Soups</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">122</span>
+                        <span>Beans &amp; Legumes</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">123</span>
+                        <span>Vegetables &amp; Fruits (Canned)</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">130</span>
+                    <span class="font-semibold">Oils, Vinegars &amp; Condiments</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">131</span>
+                        <span>Cooking Oils</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">132</span>
+                        <span>Vinegars &amp; Dressings</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">133</span>
+                        <span>Spreads &amp; Sauces</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">140</span>
+                    <span class="font-semibold">Baking &amp; Bulk Items</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">141</span>
+                        <span>Flour &amp; Baking Mixes</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">142</span>
+                        <span>Sugars &amp; Sweeteners</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">143</span>
+                        <span>Nuts &amp; Dried Fruits</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">144</span>
+                        <span>Baking Ingredients &amp; Decor</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 200 – Snacks & Beverages -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">200</span>
+                <span class="font-semibold">Snacks &amp; Beverages</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">210</span>
+                    <span class="font-semibold">Sweet Snacks</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">211</span>
+                        <span>Candy Bars</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">212</span>
+                        <span>Cookies &amp; Crackers</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">213</span>
+                        <span>Chocolates &amp; Truffles</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">220</span>
+                    <span class="font-semibold">Savory Snacks</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">221</span>
+                        <span>Chips &amp; Pretzels</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">222</span>
+                        <span>Nuts &amp; Seeds</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">223</span>
+                        <span>Jerky &amp; Dried Meats</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">230</span>
+                    <span class="font-semibold">Non-Alcoholic Drinks</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">231</span>
+                        <span>Sodas</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">232</span>
+                        <span>Juices</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">233</span>
+                        <span>Bottled Water</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">234</span>
+                        <span>Energy Drinks</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">240</span>
+                    <span class="font-semibold">Alcoholic Drinks</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">241</span>
+                        <span>Beer</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">242</span>
+                        <span>Wine</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">243</span>
+                        <span>Spirits</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">244</span>
+                        <span>Ready-to-Drink Cocktails</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 300 – Household & Personal Care -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">300</span>
+                <span class="font-semibold">Household &amp; Personal Care</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">310</span>
+                    <span class="font-semibold">Cleaning &amp; Paper Goods</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">311</span>
+                        <span>Laundry Detergents &amp; Fabric Softeners</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">312</span>
+                        <span>Dishwashing Soaps &amp; Liquids</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">313</span>
+                        <span>Household Cleaners</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">314</span>
+                        <span>Paper Towels &amp; Napkins</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">315</span>
+                        <span>Toilet Paper &amp; Facial Tissues</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">320</span>
+                    <span class="font-semibold">Personal Care &amp; Health</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">321</span>
+                        <span>Shampoo &amp; Conditioner</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">322</span>
+                        <span>Soap &amp; Body Wash</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">323</span>
+                        <span>Oral Care (Toothpaste &amp; Mouthwash)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">324</span>
+                        <span>Skincare &amp; Cosmetics</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">330</span>
+                    <span class="font-semibold">Pet Supplies</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">331</span>
+                        <span>Dog Food</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">332</span>
+                        <span>Cat Food</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">333</span>
+                        <span>Pet Treats</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">334</span>
+                        <span>Pet Grooming &amp; Accessories</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 400 – Fresh Produce -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">400</span>
+                <span class="font-semibold">Fresh Produce</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">410</span>
+                    <span class="font-semibold">Vegetables</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">411</span>
+                        <span>Leafy Greens</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">412</span>
+                        <span>Root Vegetables</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">413</span>
+                        <span>Cruciferous Vegetables</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">414</span>
+                        <span>Fresh Herbs</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">420</span>
+                    <span class="font-semibold">Fruits</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">421</span>
+                        <span>Citrus Fruits</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">422</span>
+                        <span>Berries</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">423</span>
+                        <span>Tropical Fruits</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">424</span>
+                        <span>Stone Fruits</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">430</span>
+                    <span class="font-semibold">Herbs &amp; Specialty Produce</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">431</span>
+                        <span>Organic Produce</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">432</span>
+                        <span>Microgreens &amp; Sprouts</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">433</span>
+                        <span>Specialty Mushrooms</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 500 – Proteins & Dairy -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">500</span>
+                <span class="font-semibold">Proteins &amp; Dairy</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">510</span>
+                    <span class="font-semibold">Meat &amp; Poultry</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">511</span>
+                        <span>Beef</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">512</span>
+                        <span>Pork</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">513</span>
+                        <span>Chicken</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">514</span>
+                        <span>Turkey &amp; Other Poultry</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">520</span>
+                    <span class="font-semibold">Seafood</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">521</span>
+                        <span>Fresh Fish</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">522</span>
+                        <span>Shellfish</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">523</span>
+                        <span>Smoked Seafood</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">530</span>
+                    <span class="font-semibold">Eggs &amp; Dairy Alternatives</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">531</span>
+                        <span>Eggs (Chicken, Duck)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">532</span>
+                        <span>Plant-Based Egg Replacements</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">540</span>
+                    <span class="font-semibold">Cheese &amp; Dairy</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">541</span>
+                        <span>Milk (Cow, Plant)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">542</span>
+                        <span>Yogurt &amp; Kefir</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">543</span>
+                        <span>Butter &amp; Cream</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">544</span>
+                        <span>Specialty Cheeses</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 600 – Frozen Foods -->
+            <details class="mb-2">
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">600</span>
+                <span class="font-semibold">Frozen Foods</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">610</span>
+                    <span class="font-semibold">Frozen Vegetables &amp; Fruits</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">611</span>
+                        <span>Frozen Vegetables (By Type)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">612</span>
+                        <span>Frozen Fruits (By Type)</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">620</span>
+                    <span class="font-semibold">Frozen Meals &amp; Proteins</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">621</span>
+                        <span>Ready Meals &amp; Entrees</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">622</span>
+                        <span>Frozen Pizza</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">623</span>
+                        <span>Frozen Meat &amp; Seafood</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">630</span>
+                    <span class="font-semibold">Desserts &amp; Novelties</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">631</span>
+                        <span>Ice Cream &amp; Gelato</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">632</span>
+                        <span>Frozen Desserts &amp; Novelties</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+
+            <!-- 990 – Services & Miscellaneous -->
+            <details>
+                <summary class="flex items-center">
+                <span class="font-mono text-sepiaAccent mr-2">990</span>
+                <span class="font-semibold">Services &amp; Miscellaneous</span>
+                </summary>
+                <div class="ml-6 mt-2 space-y-2">
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">991</span>
+                    <span class="font-semibold">Bakery &amp; Fresh Baked</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">991.1</span>
+                        <span>Bread Loaves</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">991.2</span>
+                        <span>Pastries &amp; Sweets</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">991.3</span>
+                        <span>Cakes &amp; Pies</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">992</span>
+                    <span class="font-semibold">Floral &amp; Gifts</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">992.1</span>
+                        <span>Fresh Flowers</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">992.2</span>
+                        <span>Potted Plants</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">992.3</span>
+                        <span>Gift Cards &amp; Baskets</span>
+                    </div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="flex items-center">
+                    <span class="font-mono text-sepiaAccent mr-2">993</span>
+                    <span class="font-semibold">Pharmacy &amp; Click-&amp;Collect</span>
+                    </summary>
+                    <div class="ml-6 mt-1 space-y-1">
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">993.1</span>
+                        <span>Over-the-Counter Medications</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">993.2</span>
+                        <span>Prescription Pickup</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-mono text-sepiaAccent mr-2">993.3</span>
+                        <span>Health Consultations &amp; Services</span>
+                    </div>
+                    </div>
+                </details>
+                </div>
+            </details>
+        </div>
+    </div>
+</div>
   <!-- CREATOR SECTION -->
   <section id="creator" class="py-16 bg-sepiaBG/50">
     <div class="container mx-auto px-6 lg:px-8 max-w-2xl mx-auto">
@@ -181,7 +744,6 @@
         About the Creator
       </h3>
       <div class="flex flex-col lg:flex-row items-center gap-8">
-        <!-- Placeholder for Hank Green’s Photo -->
         <img
           src="https://hankgreen.com/wp-content/uploads/2021/10/Hank-Green-1.jpg"
           alt="Hank Green"
@@ -197,7 +759,7 @@
             need in seconds—no matter the brand or location.
           </p>
           <p class="mt-4 italic text-sepiaAccent">
-            “Bring the joy of the library to your grocery cart.”  
+            “Bring the joy of the library to your grocery cart.”
           </p>
         </div>
       </div>
@@ -210,7 +772,6 @@
       <h3 class="text-2xl font-bold mb-6 border-b-2 w-36 border-sepiaAccent">
         Future Roadmap
       </h3>
-
       <ul class="space-y-8">
         <li>
           <h4 class="text-xl font-semibold">1. Community-Driven Wiki</h4>
@@ -222,7 +783,6 @@
             >
           </p>
         </li>
-
         <li>
           <h4 class="text-xl font-semibold">2. Interactive Store Maps</h4>
           <p class="mt-2 leading-relaxed">
@@ -233,7 +793,6 @@
             >
           </p>
         </li>
-
         <li>
           <h4 class="text-xl font-semibold">3. API & Open Data Exports</h4>
           <p class="mt-2 leading-relaxed">
@@ -244,7 +803,6 @@
             >
           </p>
         </li>
-
         <li>
           <h4 class="text-xl font-semibold">4. Mobile App & Scannable Codes</h4>
           <p class="mt-2 leading-relaxed">
@@ -255,7 +813,6 @@
             >
           </p>
         </li>
-
         <li>
           <h4 class="text-xl font-semibold">5. Analytics Dashboard</h4>
           <p class="mt-2 leading-relaxed">
@@ -276,7 +833,7 @@
   >
     <div class="container mx-auto px-6 lg:px-8 text-center">
       <p class="text-sm">
-        &copy; 2025 Chewy Decimal System&nbsp;• All Rights Reserved&nbsp;•
+        &copy; 2025 Chewy Decimal System&nbsp;• No Rights Reserved&nbsp;•
         <a
           href="https://github.com/thenotoriousJeremy/chewey-decimal-system"
           class="underline hover:text-sepiaBG"
