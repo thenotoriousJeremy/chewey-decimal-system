@@ -747,7 +747,14 @@
         <img
           src="https://hankgreen.com/wp-content/uploads/2021/10/Hank-Green-1.jpg"
           alt="Hank Green"
-          class="w-48 h-48 rounded-full border-4 border-sepiaAccent object-cover"
+          class="
+            w-48      h-48
+            sm:w-48   sm:h-48  /* smaller on narrow screens, if you like */
+            rounded-full 
+            border-4  border-sepiaAccent 
+            object-cover 
+            object-top
+              "
         />
         <div>
           <h4 class="text-xl font-semibold">Hank Green</h4>
