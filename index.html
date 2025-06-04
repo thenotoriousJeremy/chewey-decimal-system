@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Chewy Decimal System</title>
+
+  <!-- Tailwind CDN (Play CDN for prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!--
+    In order to get a warmer, sepia-toned “old library” look,
+    we’ll override the default Tailwind palette slightly. 
+  -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sepiaBG: "#f5f0dc",
+            sepiaText: "#4b3621",
+            sepiaAccent: "#a67c52",
+          },
+        },
+        fontFamily: {
+          serif: ["Merriweather", "serif"],
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts: Merriweather for an old-book feel -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Global `body` uses our sepia palette */
+    body {
+      background-color: theme("colors.sepiaBG");
+      color: theme("colors.sepiaText");
+      font-family: theme("fontFamily.serif");
+    }
+    /* Subtle page fade in */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="fade-in min-h-screen flex flex-col">
+  <!-- HEADER -->
+  <header
+    class="bg-sepiaAccent/80 text-sepiaBG py-6 border-b border-sepiaAccent"
+  >
+    <div class="container mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <h1 class="text-3xl font-bold">Chewy Decimal System</h1>
+      <nav class="space-x-6 text-lg">
+        <a
+          href="#about"
+          class="hover:underline hover:text-sepiaAccent transition-colors"
+          >About</a
+        >
+        <a
+          href="#basics"
+          class="hover:underline hover:text-sepiaAccent transition-colors"
+          >Basics</a
+        >
+        <a
+          href="#creator"
+          class="hover:underline hover:text-sepiaAccent transition-colors"
+          >Creator</a
+        >
+        <a
+          href="#roadmap"
+          class="hover:underline hover:text-sepiaAccent transition-colors"
+          >Roadmap</a
+        >
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / INTRO -->
+  <section
+    id="about"
+    class="flex-1 flex items-center justify-center py-16"
+  >
+    <div class="container mx-auto px-6 lg:px-8 text-center max-w-3xl">
+      <h2 class="text-4xl font-bold mb-4">Organizing Every Grocery Like a Library</h2>
+      <p class="text-lg leading-relaxed">
+        The <strong>Chewy Decimal System</strong> brings the familiar rigor of a library’s Dewey Decimal catalog to every grocery, making it easy
+        for shoppers and employees alike to locate, classify, and expand every aisle. Think of it as the Dewey Decimal for Food.
+      </p>
+    </div>
+  </section>
+
+  <!-- BASICS SECTION -->
+  <section id="basics" class="py-16 bg-sepiaBG">
+    <div class="container mx-auto px-6 lg:px-8">
+      <h3 class="text-2xl font-bold mb-6 border-b-2 w-36 border-sepiaAccent">
+        Basics
+      </h3>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Left Column: Overview -->
+        <div>
+          <h4 class="text-xl font-semibold mb-2">What Is the Chewy Decimal System?</h4>
+          <p class="mb-4 leading-relaxed">
+            Inspired by Melvil Dewey’s approach to cataloging books, the Chewy Decimal System assigns every grocery aisle,
+            sub-aisle, and product category a unique numeric “shelf number.” By following this system:
+          </p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>
+              <strong>Shoppers</strong> can navigate any store layout as easily as browsing a library’s catalog.
+            </li>
+            <li>
+              <strong>Managers</strong> can standardize restocking, ordering, and training across all locations.
+            </li>
+            <li>
+              <strong>Developers</strong> can build digital tools—like mobile wayfinding, smart carts, or inventory APIs—
+              on a universal codebase.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Column: Sample Decimal Outline -->
+        <div>
+          <h4 class="text-xl font-semibold mb-2">Sample Classification</h4>
+          <div class="bg-sepiaBG p-4 rounded-lg border border-sepiaAccent">
+            <dl class="space-y-4">
+              <div>
+                <dt class="font-mono text-sepiaAccent">100</dt>
+                <dd class="ml-4">Pantry Staples (e.g., grains, oils, baking)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">200</dt>
+                <dd class="ml-4">Snacks & Beverages (e.g., chips, sodas, juices)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">300</dt>
+                <dd class="ml-4">Household & Personal Care (e.g., cleaners, paper goods)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">400</dt>
+                <dd class="ml-4">Fresh Produce (e.g., fruits, vegetables, herbs)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">500</dt>
+                <dd class="ml-4">Proteins & Dairy (e.g., meat, seafood, cheese)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">600</dt>
+                <dd class="ml-4">Frozen Foods (e.g., frozen veggies, meals, desserts)</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-sepiaAccent">990</dt>
+                <dd class="ml-4">Services & Misc (e.g., bakery, pharmacy, floral)</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR SECTION -->
+  <section id="creator" class="py-16 bg-sepiaBG/50">
+    <div class="container mx-auto px-6 lg:px-8 max-w-2xl mx-auto">
+      <h3 class="text-2xl font-bold mb-6 border-b-2 w-36 border-sepiaAccent">
+        About the Creator
+      </h3>
+      <div class="flex flex-col lg:flex-row items-center gap-8">
+        <!-- Placeholder for Hank Green’s Photo -->
+        <img
+          src="https://hankgreen.com/wp-content/uploads/2021/10/Hank-Green-1.jpg"
+          alt="Hank Green"
+          class="w-48 h-48 rounded-full border-4 border-sepiaAccent object-cover"
+        />
+        <div>
+          <h4 class="text-xl font-semibold">Hank Green</h4>
+          <p class="mt-2 leading-relaxed">
+            <strong>Hank Green</strong> is a lifelong bibliophile turned digital educator, best known for co-creating the
+            Vlogbrothers channel and authoring bestselling books. With a passion for both organization and community, Hank
+            developed the Chewy Decimal System to merge library-style cataloging with modern grocery workflows. His vision
+            is a world where every shopper, whether in a supermarket or an independent co-op, can find exactly what they
+            need in seconds—no matter the brand or location.
+          </p>
+          <p class="mt-4 italic text-sepiaAccent">
+            “Bring the joy of the library to your grocery cart.”  
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP SECTION -->
+  <section id="roadmap" class="py-16 bg-sepiaBG">
+    <div class="container mx-auto px-6 lg:px-8">
+      <h3 class="text-2xl font-bold mb-6 border-b-2 w-36 border-sepiaAccent">
+        Future Roadmap
+      </h3>
+
+      <ul class="space-y-8">
+        <li>
+          <h4 class="text-xl font-semibold">1. Community-Driven Wiki</h4>
+          <p class="mt-2 leading-relaxed">
+            Embed a lightweight Markdown wiki (built on Wiki.js) so that contributors can propose new categories,
+            refine sub-codes, and document store-specific adaptations.  
+            <span class="font-mono text-sm text-sepiaAccent"
+              >(see: GitHub Issues + pull requests for taxonomy changes)</span
+            >
+          </p>
+        </li>
+
+        <li>
+          <h4 class="text-xl font-semibold">2. Interactive Store Maps</h4>
+          <p class="mt-2 leading-relaxed">
+            Use the numeric codes to generate downloadable store-layout maps. Shoppers can type in “112” and see exactly
+            where “Bananas” are in their local Kroger, Trader Joe’s, or Whole Foods.  
+            <span class="font-mono text-sm text-sepiaAccent"
+              >(see: JavaScript map overlays + mobile routing)</span
+            >
+          </p>
+        </li>
+
+        <li>
+          <h4 class="text-xl font-semibold">3. API & Open Data Exports</h4>
+          <p class="mt-2 leading-relaxed">
+            Offer a public JSON/CSV dump of the primary taxonomy so developers can build apps, smart fridge integrations,
+            or voice-assistant skills (“Alexa, find all 500.20 items near me”).  
+            <span class="font-mono text-sm text-sepiaAccent"
+              >(see: RESTful endpoints + rate limiting)</span
+            >
+          </p>
+        </li>
+
+        <li>
+          <h4 class="text-xl font-semibold">4. Mobile App & Scannable Codes</h4>
+          <p class="mt-2 leading-relaxed">
+            Create a companion iOS/Android app where each aisle has a QR-like “Chewy code.” Point your phone, and it
+            directs you to the right shelf.  
+            <span class="font-mono text-sm text-sepiaAccent"
+              >(see: Flutter or React Native prototype)</span
+            >
+          </p>
+        </li>
+
+        <li>
+          <h4 class="text-xl font-semibold">5. Analytics Dashboard</h4>
+          <p class="mt-2 leading-relaxed">
+            Track how often each code is used, discover “hot” categories in each region, and let retailers optimize
+            shelf space.  
+            <span class="font-mono text-sm text-sepiaAccent"
+              >(see: Grafana + Prometheus or simple charting)</span
+            >
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer
+    class="bg-sepiaAccent/80 text-sepiaBG py-6 mt-auto border-t border-sepiaAccent"
+  >
+    <div class="container mx-auto px-6 lg:px-8 text-center">
+      <p class="text-sm">
+        &copy; 2025 Chewy Decimal System&nbsp;• All Rights Reserved&nbsp;•
+        <a
+          href="https://github.com/your-org/chewy-decimal-system"
+          class="underline hover:text-sepiaBG"
+          >GitHub</a
+        >
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
